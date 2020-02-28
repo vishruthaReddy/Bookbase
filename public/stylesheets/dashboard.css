@@ -1,0 +1,53 @@
+.book-of-genre-container {
+  display: flex;
+  flex-flow: column wrap;
+  /* margin-top: 10px; */
+}
+
+.book-of-genre-container .book-of-genre {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 40px;
+}
+
+.book-of-genre .title, .book-of-genre .header-lg {
+  flex: 1 0 50%;
+}
+
+.book-of-genre .header, .book-of-genre .rating, .book-of-genre .votes {
+  flex: 1 0 25%;
+}
+
+.jumbotron {
+  background: none
+}
+
+
+
+.genres-container .genre {
+  flex: 1 0 20%;
+  margin: 5px 0;
+  padding: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+  color: rgb(59, 55, 55); 
+}
+
+.genres-container .genre:hover {
+  background-color: rgb(102, 113, 148);
+}
+
+.main {
+    width:75%; 
+    float: left; 
+}
+
+.aside {
+    width: 25%; 
+    float: right; 
+}
+
+* { 
+  font-family: monospace;  
+}

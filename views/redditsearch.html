@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="angularjsNodejsTutorial">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BookBase : Reddit's Book Recommendations!</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-oOs/gFavzADqv3i5nCM+9CzXe3e5vXLXZ5LZ7PplpsWpTCufB7kqkTlC9FtZ5nJo" crossorigin="anonymous">
+    <script src="javascripts/app.js" type="text/javascript"></script>
+    <!-- Custom styles for this template-->
+    <link href="/stylesheets/common.css" rel="stylesheet">
+    <link href="/stylesheets/redditsearch.css" rel="stylesheet">
+  </head>
+
+  <body ng-controller="dashboardController">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <span class="navbar-brand center">BookBase</span>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/">Homepage</a>
+          <a class="nav-item nav-link" href="/bookresult">Book Search</a>
+          <a class="nav-item nav-link" href="/authorssearch">Author Search</a>
+          <a class="nav-item nav-link active" href="/redditsearch">Reddit Search</a>
+          <a class="nav-item nav-link" href="/recommendations">Recommendations</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- User Content -->
+
+
+    <div class="jumbotron">
+
+      <form class="form-inline my-2 my-lg-0" wtx-context="19357285-E99F-46C4-AB3B-9CDB82AE52BB">
+
+        <input class="form-control mr-sm-2" type="text" placeholder="Search reddit comments" wtx-context="B0E6765A-0404-435E-8F22-2B1515B7FCB1" ng-model="search.SearchQuery" /> 
+        <button ng-click="searchReddit(search.SearchQuery)" class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+
+      </form>
+
+      <p></p>
+      <p></p>
+      <p></p>
+
+      <div class="book-container">
+
+        <div ng-repeat="comment in reddit_search" id="{{'button-' + a.title}}">
+          <p>Author: {{comment.author}}, ({{comment.score}})</p>
+          <p>{{comment.body}}</p>
+          
+         <!--
+           <button ng-attr-id="{{ 'button-' + comment.id }}" ng-click="getComment(comment.parent_id)" class="reddit-button" type="submit">Find Parent</button>  
+           <button ng-click="getChildren(comment)" class="reddit-button" type="submit">Find Children</button>  
+         --> 
+          <p></p>
+          <p></p>
+        </div>
+      </div>
+   
+
+    <!-- Include these before the end of body tag in every HTML file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+
+</html>

@@ -1,0 +1,8 @@
+* { 
+    font-family: monospace;  
+  }
+
+  .jumbotron {
+    background: none;
+    float: left; 
+  }

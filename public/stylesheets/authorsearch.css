@@ -1,0 +1,47 @@
+* { 
+    font-family: monospace;  
+  }
+
+  .jumbotron {
+    background: none;
+    
+  }
+
+  .book-container {
+    /* margin: 10px 0; */
+    
+      min-height: 100%; 
+      min-height: 100vh;    
+      display: flex;
+      flex-flow: column wrap;
+      align-items: left;
+      width: 75%;
+      margin-top: 0px;
+    /* border-bottom: 1px solid #ddd; */
+  }
+  
+  .book-container .header {
+    flex: 1 0 20%;
+    margin: 10px 0;
+    margin-top: 5px 0;
+    padding: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+    color: rgb(59, 55, 55); 
+  }
+  
+  .book-container .genre:hover {
+    background-color: rgb(102, 113, 148);
+  }
+  
+  .btn-primary {
+  color:white
+  }
+  
+  .book-container .books-by-author {
+      position: right; 
+  }
+
+  .top-author {
+    float: right;
+  }

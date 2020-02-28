@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="angularjsNodejsTutorial">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BookBase : Dashboard</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-oOs/gFavzADqv3i5nCM+9CzXe3e5vXLXZ5LZ7PplpsWpTCufB7kqkTlC9FtZ5nJo" crossorigin="anonymous">
+    <script src="javascripts/app.js" type="text/javascript"></script>
+    <!-- Custom styles for this template-->
+    <link href="/stylesheets/common.css" rel="stylesheet">
+    <link href="/stylesheets/bookresult.css" rel="stylesheet">
+  </head>
+
+  <body ng-controller="dashboardController">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <span class="navbar-brand center">BookBase</span>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/">Homepage</a>
+          <a class="nav-item nav-link active" href="/bookresult">Book Search</a>
+          <a class="nav-item nav-link" href="/authorssearch">Author Search</a>
+          <a class="nav-item nav-link" href="/redditsearch">Reddit Search</a>
+          <a class="nav-item nav-link" href="/recommendations">Recommendations</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- User Content -->
+
+
+    <div class="jumbotron">
+
+      <form class="form-inline my-2 my-lg-0" wtx-context="19357285-E99F-46C4-AB3B-9CDB82AE52BB">
+
+        <input class="form-control mr-sm-2" type="text" placeholder="Search By Book Title" wtx-context="B0E6765A-0404-435E-8F22-2B1515B7FCB1" ng-model="search.SearchQuery" /> 
+        <button ng-click="searchBooks(search.SearchQuery)" class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+
+      </form>
+
+      <div class="book-container">
+        <div class="h5">List of Books Related to Your Search</div>
+        <div class="genre" ng-repeat="b in book_search" ng-click="showBook(b)" id="{{'button-' + b.title}}">
+          {{b.title}}
+      </div>
+      <div class="book-container">
+        <div class="book" ng-repeat="sb in selected_book">
+          <div class="header-lg"><strong>Title: {{sb.title}}</strong></div>
+          <div class="header"><strong>ISBN: {{sb.isbn13}}</strong></div>
+          <div class="header"><strong>Average Rating: {{sb.average_rating}}</strong></div>
+          <div class="header"><strong>Page Number: {{sb.num_pages}}</strong></div>
+          <div class="header"><strong>Published: {{sb.publication_day}}/{{sb.publication_month}}/{{sb.publication_year}}</strong></div>
+          <div class="header"><strong>Description: {{sb.description}}</strong></div>
+          <div class="header"><strong>Rating Count: {{sb.ratings_count}}</strong></div>
+          <div class="header"><strong>Users also Read: </strong></div>
+          <button ng-click="usersRead(sb.book_id)" class="btn btn-secondary my-2 my-sm-0" type="submit">Find Out!</button>
+          <div class="book" ng-repeat="ur in users_read">
+            {{ur}}
+          </div>
+          <div class="authors" ng-repeat="sba in selected_book_authors">
+            <div class ="image-container">
+              <img alt="book_cover" src= "{{sb.image_url}}" width="256" height = "512" >
+            </div>
+            <div class="header"><strong>The author of this work is: {{sba.author_id[0].name}}</strong></div>
+          </div>
+          <div><strong>Other books in this book's series are: {{ois.title}}</strong></div>
+          <div class="others-in-series" ng-repeat="ois in selected_book_others_in_series">
+            <div class="header">{{ois.title}}</div>
+          </div>
+          <div class="book-reviews" ng-repeat="r in selected_book_reviews">
+            <div class="header"><strong>Book Reviews: </strong>{{r.review_text}}
+          </div>
+        </div>
+        
+      </div>
+    </div>
+   
+
+    <!-- Include these before the end of body tag in every HTML file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+
+</html>
